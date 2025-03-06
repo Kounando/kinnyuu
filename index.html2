@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>金融アンケート調査 - ページ2</h1>
-        <form action="submit.html">
+        <form id="form2" action="submit.html" method="POST">
             <div class="question">
                 <label for="q5">質問5: 投資経験はありますか？</label>
                 <input type="text" id="q5" name="q5">
@@ -26,8 +26,21 @@
                 <label for="q8">質問8: 金融に関する知識をどのくらい持っていますか？</label>
                 <input type="text" id="q8" name="q8">
             </div>
+            <!-- Hidden inputs to carry data from page 1 -->
+            <input type="hidden" id="q1" name="q1">
+            <input type="hidden" id="q2" name="q2">
+            <input type="hidden" id="q3" name="q3">
+            <input type="hidden" id="q4" name="q4">
             <button type="submit">送信</button>
         </form>
     </div>
+    <script>
+        // Get URL parameters and set hidden input values
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('q1').value = urlParams.get('q1');
+        document.getElementById('q2').value = urlParams.get('q2');
+        document.getElementById('q3').value = urlParams.get('q3');
+        document.getElementById('q4').value = urlParams.get('q4');
+    </script>
 </body>
 </html>
